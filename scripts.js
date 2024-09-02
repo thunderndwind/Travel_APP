@@ -42,6 +42,7 @@ async function handleSearch(event) {
             }
         });
     }
+    document.getElementById('result').style.visibility = "visible";
     document.querySelector('#result').classList.add("result-card");
     document.getElementById('result').innerHTML = results;
 }
@@ -49,7 +50,7 @@ async function handleSearch(event) {
 function clearResults() {
     document.getElementById('destinationInput').value = '';
     document.getElementById('result').innerHTML = '';
-    document.getElementById('result').style.visibility = false;
+    document.getElementById('result').style.visibility = "hidden";
 
 }
 
