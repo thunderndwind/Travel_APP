@@ -21,6 +21,7 @@ async function handleSearch(event) {
     }
 
     const searchQuery = document.getElementById('destinationInput').value.toLowerCase();
+    console.log(searchQuery);
     let results = '';
 
     if (searchQuery == 'temples' || searchQuery == 'temple') {
