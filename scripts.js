@@ -42,6 +42,7 @@ async function handleSearch(event) {
             }
         });
     }
+    document.getElementById('searchDestinations').style.visibility = "visible";
     document.getElementById('result').style.visibility = "visible";
     document.querySelector('#result').classList.add("result-card");
     document.getElementById('result').innerHTML = results;
@@ -50,6 +51,7 @@ async function handleSearch(event) {
 function clearResults() {
     document.getElementById('destinationInput').value = '';
     document.getElementById('result').innerHTML = '';
+    document.getElementById('searchDestinations').style.visibility = "hidden";
     document.getElementById('result').style.visibility = "hidden";
 
 }
