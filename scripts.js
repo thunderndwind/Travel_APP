@@ -15,6 +15,7 @@ async function handleSearch(event) {
     event.preventDefault();
 
     const data = await fetchData();
+    console.log(data);
     if (!data) {
         document.getElementById('result').innerText = 'No results found';
         return;
