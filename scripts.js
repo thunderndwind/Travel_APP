@@ -32,8 +32,17 @@ async function handleSearch(event) {
         data.beaches.forEach(beach => {
             results += `<div><img src="images/${beach.imageUrl}" alt="${beach.name}"><h3>${beach.name}</h3><p>${beach.description}</p></div>`;
         });
+    } else if (searchQuery == 'country' || searchQuery == 'countries' || "japan" || "australia") {
+        console.log("searched");
+        data.countries.forEach(country => {
+            if (country.name.toLowerCase().includes(searchQuery)) {
+                country.cities.forEach(city => {
+                    results += `<img src="images/${city.imageUrl}" alt="${city.name}"><div><h3>${city.name}</h3><p>${city.description}</p></div>`;
+                });
+            }
+        });
     } else {
-
+        console.log("searched");
         data.countries.forEach(country => {
             if (country.name.toLowerCase().includes(searchQuery)) {
                 country.cities.forEach(city => {
@@ -53,7 +62,6 @@ function clearResults() {
     document.getElementById('result').innerHTML = '';
     document.getElementById('searchDestinations').style.visibility = "hidden";
     document.getElementById('result').style.visibility = "hidden";
-
 }
 
 document.addEventListener('DOMContentLoaded', function () {
