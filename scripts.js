@@ -2,7 +2,6 @@ async function fetchData() {
     try {
         const response = await fetch('data.json');
         return await response.json();
-
     } catch (error) {
         console.error("Error fetching data:", error);
         return null;
@@ -35,11 +34,9 @@ async function handleSearch(event) {
     } else if (searchQuery == 'country' || searchQuery == 'countries' || "japan" || "australia") {
         console.log(data);
         data.countries.forEach(country => {
-            if (country.name.toLowerCase().includes(searchQuery)) {
-                country.cities.forEach(city => {
-                    results += `<img src="images/${city.imageUrl}" alt="${city.name}"><div><h3>${city.name}</h3><p>${city.description}</p></div>`;
-                });
-            }
+            country.cities.forEach(city => {
+                results += `<img src="images/${city.imageUrl}" alt="${city.name}"><div><h3>${city.name}</h3><p>${city.description}</p></div>`;
+            });
         });
     } else {
         data.countries.forEach(country => {
