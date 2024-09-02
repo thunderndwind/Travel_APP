@@ -19,7 +19,7 @@ async function handleSearch(event) {
         document.getElementById('result').innerText = 'No results found';
         return;
     }
-
+    console.log("query: ");
     const searchQuery = document.getElementById('destinationInput').value.toLowerCase();
     console.log(searchQuery);
     let results = '';
