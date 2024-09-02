@@ -49,6 +49,8 @@ async function handleSearch(event) {
 function clearResults() {
     document.getElementById('destinationInput').value = '';
     document.getElementById('result').innerHTML = '';
+    document.getElementById('result').style.visibility = false;
+
 }
 
 document.addEventListener('DOMContentLoaded', function () {
