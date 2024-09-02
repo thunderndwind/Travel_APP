@@ -1,8 +1,6 @@
 async function fetchData() {
     try {
-        console.log("trying");
         const response = await fetch('data.json');
-        console.log("fetched");
         return await response.json();
 
     } catch (error) {
@@ -15,7 +13,6 @@ async function handleSearch(event) {
     event.preventDefault();
 
     const data = await fetchData();
-    console.log(data);
     if (!data) {
         document.getElementById('result').innerText = 'No results found';
         return;
@@ -31,11 +28,12 @@ async function handleSearch(event) {
 
         });
     } else if (searchQuery == 'beaches' || searchQuery == 'beach') {
+        console.log(data);
         data.beaches.forEach(beach => {
             results += `<div><img src="images/${beach.imageUrl}" alt="${beach.name}"><h3>${beach.name}</h3><p>${beach.description}</p></div>`;
         });
     } else if (searchQuery == 'country' || searchQuery == 'countries' || "japan" || "australia") {
-        console.log("searched");
+        console.log(data);
         data.countries.forEach(country => {
             if (country.name.toLowerCase().includes(searchQuery)) {
                 country.cities.forEach(city => {
@@ -44,7 +42,6 @@ async function handleSearch(event) {
             }
         });
     } else {
-        console.log("searched");
         data.countries.forEach(country => {
             if (country.name.toLowerCase().includes(searchQuery)) {
                 country.cities.forEach(city => {
