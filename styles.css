@@ -112,7 +112,7 @@ input::placeholder {
     background-color: rgb(136, 211, 232, 0.6);
     background-blend-mode: multiply;
     background-size: cover;
-
+    padding-top: 3rem;
 
 
 }
