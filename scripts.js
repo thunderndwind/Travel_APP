@@ -16,9 +16,7 @@ async function handleSearch(event) {
         document.getElementById('result').innerText = 'No results found';
         return;
     }
-    console.log("query: ");
     const searchQuery = document.getElementById('destinationInput').value.toLowerCase();
-    console.log(searchQuery);
     let results = '';
 
     if (searchQuery == 'temples' || searchQuery == 'temple') {
@@ -27,12 +25,10 @@ async function handleSearch(event) {
 
         });
     } else if (searchQuery == 'beaches' || searchQuery == 'beach') {
-        console.log(data);
         data.beaches.forEach(beach => {
             results += `<div><img src="images/${beach.imageUrl}" alt="${beach.name}"><h3>${beach.name}</h3><p>${beach.description}</p></div>`;
         });
     } else if (searchQuery == 'country' || searchQuery == 'countries' || "japan" || "australia") {
-        console.log(data);
         data.countries.forEach(country => {
             country.cities.forEach(city => {
                 results += `<img src="images/${city.imageUrl}" alt="${city.name}"><div><h3>${city.name}</h3><p>${city.description}</p></div>`;
